@@ -17,7 +17,17 @@
 		<% } %>
 		<%- item.content %>  
 	</div>
-		<%- partial('footer') %>   	       
+
+		<% if (!index && theme.donate){ %>
+	  <%- partial('donate') %>
+    <% } %>
+		<%- partial('footer') %>   
+		<br>
+
+		<% if (theme.show_declare) { %>
+		<%- partial('declare') %>
+		<% } %>
+
 	</article>
 	<%- partial('pagination') %>
 	<%- partial('comment') %>
