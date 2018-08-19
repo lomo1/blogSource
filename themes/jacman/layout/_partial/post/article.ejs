@@ -21,14 +21,16 @@
 		<% if (!index && theme.donate){ %>
 	  <%- partial('donate') %>
     <% } %>
-		<%- partial('footer') %>   
 		<br>
+		<div align="center">
+			<% if (theme.show_declare) { %>
+			<%- partial('declare') %>
+			<% } %>
+		</div>
 
-		<% if (theme.show_declare) { %>
-		<%- partial('declare') %>
-		<% } %>
+		<%- partial('footer') %>   
 
 	</article>
 	<%- partial('pagination') %>
 	<%- partial('comment') %>
-</div>  
+</div>
