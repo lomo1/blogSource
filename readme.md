@@ -7,6 +7,10 @@ gulp一键：
 
 自动部署至远程。
 
+> gulp, run in local
+
+> gulp deploy, deploy the page source to github pages
+
 ### todo
 auto refresh in local browser
 
