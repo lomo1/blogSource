@@ -170,3 +170,56 @@ generateData().subscribe(
 
 整个数据流的传递 只有 `Observable` 在被订阅(`.subscribe()`)消费时才会去推送数据流(不管订阅者是否处理消费, 只要订阅了 就给你推送).
 
+##### Operator 操作符
+
+常见操作符: `of`, `map`, `reduce`, `filter`, `take`, `first`, `Timer`, `Interval`.
+
+操作符本质上是一个 `function`, 用来处理、加工 `Observable` 中传递的数据流里的数据. 这个 操作符 `function()` 输入、输出(返回)均为`Observable`类型
+
+
+e.g.
+
+```ts
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/observable/from';
+
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/reduce';
+
+
+let persons = [
+    { name: 'David', age: 3, salary: 2000 },
+    { name: 'Dav', age: 17, salary: 12000 },
+    { name: 'Lomo', age: 20, salary: 16000 },
+    { name: 'Dev', age: 20, salary: 10000 },
+    { name: 'Amy', age: 7, salary: 34000 },
+];
+// reduce 里的0 是设定的一个默认返回值, 可以不给.
+Observable.from(persons).map(p => p.salary).reduce((total, current) => total + current, 0).subscribe(
+    total => {
+        console.log(`total salary is: ${total}`)
+        // console.log(persons);
+    },
+    err => console.log(err),
+    () => console.log('finished.')
+);
+
+```
+
+```bash
+# ts-node operator
+total salary is: 74000
+finished.
+```
+
+> 通过 map  方法获取数据流的所有salary, 并交给reduce 计算获取总和
+
+参考:
+
+https://www.jianshu.com/p/d8cb71554008
+
+https://segmentfault.com/a/1190000008834251
+
+##### catch() 错误处理
+
+错误处理需要在 数据流 到达 `Observer` 之前拦截处理。
