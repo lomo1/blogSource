@@ -39,7 +39,7 @@ description: git常用命令
 ⑨git stash pop  //从Git栈中读取最近一次保存的内容，恢复工作区的相关内容
 
 
-### Git基本配置相关
+### Git基本配置(全局)
 ```bash
 git config --list
 
@@ -55,7 +55,37 @@ git config --global color.branch auto
 
 ```
 
-### 其它
+另, 可以在本机根目录下全局配置:
+```bash
+# 用户级别的配置, 该配置对当前登录用户全部有效
+vim ~/.gitconfig
+```
+
+#### Git单独配置与全局配置
+
+> 默认地, 所有项目提交时记录的账户信息均为本机的全局Git配置信息.
+
+上面👆的配置是针对开发环境本地全局配置。
+
+当有多个项目分别托管在 `GitHub`, `GitLab` 或自己搭建的内网 Git 服务器上时, 不同的服务器, 配置不用的秘钥, 每个项目可能需要配置不同的 Git 账户信息, 此时就需要单独配置某个项目的Git信息。
+
+```bash
+# cd 项目目录
+cd projectName
+# edit config info
+vim .git/config
+
+# 示例
+[user]
+        name = Lomo
+        email = lomo@lomo.space
+# 示例
+
+# 添加账户信息即可, 默认该git项目的 .git/config文件中 可能没有user相关信息, 那么它就使用的是全局配置的账户信息
+```
+
+
+### 其它(分支)
 
 ```bash
 git branch -r  #远程分支
