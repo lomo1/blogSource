@@ -276,6 +276,9 @@ public @interface Listeners {
 ```
 > 关于TestNG此注解的详细，可<a href="http://testng.org/doc/documentation-main.html#testng-listeners">点我查看</a>
 
+> 关于 TestNG 的详细使用教程, 可参考这篇全英文教程, 很详细. <a href="https://www.guru99.com/all-about-testng-and-selenium.html">点我</a>
+
+
 `DriverFactory`类：
 >使用单例的设计模式实现对driver的初始化，使得在case运行过程中，都保障其操作都是一个driver实例.
 
