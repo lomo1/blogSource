@@ -22,3 +22,15 @@ description: mysql在Mac上无法启动问题解决
 `sudo chown -R _mysql:wheel /usr/local/mysql/data`
 
 重新启动MySQL即可。
+
+
+## 链接问题
+
+```bash
+# use xxDB 时 提示如下:
+Reading table information for completion of table and column names 
+You can turn off this feature to get a quicker startup with -A 
+```
+
+可能数据库存储的数据太大. 在链接时 使用 `-A` 参数, 禁止预读已存储的大量信息即可 加快访问速度.
+
