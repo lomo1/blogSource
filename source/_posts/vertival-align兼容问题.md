@@ -1,6 +1,6 @@
 ---
 title: vertival-align兼容问题
-date: 2017-12-06 17:24:22
+date: 2016-12-06 17:24:22
 tags: css
 categories: study
 description: vertical-align兼容问题
