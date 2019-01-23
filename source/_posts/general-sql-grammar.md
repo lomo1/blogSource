@@ -1,6 +1,6 @@
 ---
 title: general sql grammar
-date: 2018-10-03 14:14:27
+date: 2017-10-03 14:14:27
 tags: mysql
 categories: study
 description: MySQL常见的一些函数使用
