@@ -14,4 +14,5 @@ Deploy:
 
 deploy the page source to github pages
 
-
+New Article:
+> hexo n 'wda usage docs'
