@@ -1,6 +1,6 @@
 ---
 title: Appium/WDA Docs
-date: 2019-09-07 17:39:11
+date: 2017-09-07 17:39:11
 tags: [appium, wda] 
 categories: program
 description: Appium 真机测试环境配置与使用
