@@ -8,6 +8,8 @@ description: K8S之应用部署[三]
 
 ## K8S学习笔记之应用部署
 
+### nginx 服务
+
 > 默认情况下, 集群对外暴露的端口范围为 30000 ~ 32767 之间.
 
 以 `Nginx` 为例, 创建 nginx-pod.yaml 文件:
@@ -55,3 +57,40 @@ kubectl apply -f /path/to/nginx-pod/yaml
 很容易发现， 通过端口转发的方式只适合本地测试使用,一旦 `port-forward` 的进程终止后, 服务就无法访问了.
 
 当然通过 `nohup` 等类似方式实现进程后台运行也可以, 但是终究不够优雅, 这也不是官方推荐的, `prod` 环境下, 更不推荐如此的使用!
+
+### 相关命令
+
+Q：创建 pod
+
+A：命令：`kubectl apply -f nginx-pod.yaml`
+
+Q：创建 service
+
+A：命令：kubectl apply -f nginx-nodePort.yaml 发布该 service
+  假设 service的 nginx-nodePort.yam文件如下
+```yaml
+		apiVersion: v1
+		kind: Service
+		metadata:
+		  name: k8s-test-nginx-service
+		spec:
+		  selector:
+		    app: nginx-pod
+		    env: test
+		  ports:
+		    - port: 80			# 服务端口, 内部可访问
+		      targetPort: 8080		# 目标端口, 此处指的是pod的8080端口
+		      nodePort: 30080		# 节点端口, 外部可访问
+		      protocol: TCP
+		  type: NodePort
+```
+
+Q：删除 service
+
+A：假设 service 创建时使用的是 nginx-nodePort.yaml，则删除时，直接：
+
+> kubectl delete -f nginx-nodePort.yaml
+
+Q：卸载 kubernets
+
+A：kubeadm reset
