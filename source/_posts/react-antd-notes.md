@@ -10,7 +10,7 @@ description: react/antd pro使用小记
 
 ### 背景
 
-> 从Angular(ts)变更到React技术栈...
+> 从Angular变更到React技术栈...
 
 吾队, 统一使用`React`了, 别问为什么, 我想了好几天也没搞明白.
 
@@ -616,7 +616,7 @@ Store就是把action和reducer联系到一起的对象。
 
 > Redux和react没有 什么直接关系.
 
-> Redux不仅支持react, 也支持angula、ember、jQuery、纯JS.
+> Redux不仅支持react, 也支持angular、ember、jQuery、纯JS.
 
 
 #### 关于Andt Pro

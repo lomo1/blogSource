@@ -375,7 +375,7 @@ public class DriverFactory {
     public static AppiumDriver createAppiumDriver() throws MalformedURLException {
         log.info("Current Driver is null : " + (appiumDriver == null));
         if (appiumDriver == null) {
-            synchronized (WebDriver.class) {
+            synchronized (AppiumDriver.class) {
                 if (appiumDriver == null) {
                     DesiredCapabilities capabilities = new DesiredCapabilities();
                     capabilities.setCapability("platformName",
