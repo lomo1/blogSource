@@ -178,3 +178,9 @@ python 2.7
 ```
 
 可以看到传入 `dict` 时，extend 只会把 dict 的 key 取出来 append 到数组最后。
+
+### 参考
+
+排列与组合公式:
+
+<https://www.zhihu.com/question/26094736>
