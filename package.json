@@ -5,6 +5,12 @@
     "hexo": {
         "version": "3.3.8"
     },
+    "scripts": {
+        "preinstall": "npx npm-force-resolutions"
+    },
+    "resolutions": {
+        "graceful-fs": "4.2.3"
+    },
     "dependencies": {
         "gulp-htmlclean": "^2.7.14",
         "gulp-htmlmin": "^3.0.0",
