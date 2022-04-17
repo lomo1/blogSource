@@ -18,12 +18,12 @@ menu:
 #### Widgets
 widgets: 
 - github-card
+- rss
 - category
 - tag
 - links
 # - douban
-- rss
-- weibo
+# - weibo
   ## provide eight widgets:github-card,category,tag,rss,archive,tagcloud,links,weibo
 
 
@@ -63,18 +63,18 @@ creative_commons: none
 author:
   intro_line1:  "To be a better one To"    ## your introduction on the bottom of the page
   intro_line2:  "Spend More Time To These Worth Things"  ## the 2nd line
-  weibo:      ## e.g. wuchong1014 or 2176287895 for http://weibo.com/2176287895
-  weibo_verifier: 34037487    ## e.g. b3593ceb Your weibo-show widget verifier ,if you use weibo-show it is needed.
+  weibo:      ## e.g. for http://weibo.com/527123733
+  weibo_verifier:     ## e.g. b3593ceb Your weibo-show widget verifier ,if you use weibo-show it is needed.
   tsina: 527123733     ## e.g. 2176287895  Your weibo ID,It will be used in share button.
   douban: chnhawk    ## e.g. wuchong1014 or your id for https://www.douban.com/people/wuchong1014
-  zhihu: lomospace     ## e.g. jark  for http://www.zhihu.com/people/jark
+  zhihu: lomospace     ## e.g. jark  for http://www.zhihu.com/people/lomospace
   email: lomo@lomo.space     ## e.g. imjark@gmail.com
-  twitter: chnhawk   ## e.g. jarkwu for https://twitter.com/jarkwu
-  github:     ## e.g. wuchong for https://github.com/wuchong
-  facebook:   ## e.g. imjark for https://facebook.com/imjark
-  linkedin:   ## e.g. wuchong1014 for https://www.linkedin.com/in/wuchong1014
+  twitter:    ## e.g. jarkwu for https://twitter.com/chanhawk
+  github: lomo1     ## e.g. wuchong for https://github.com/lomo1
+  facebook:   ## e.g. imjark for https://facebook.com/xx
+  linkedin:   ## e.g. wuchong1014 for https://www.linkedin.com/in/xx
   google_plus:    ## e.g. "111190881341800841449" for https://plus.google.com/u/0/111190881341800841449, the "" is needed!
-  stackoverflow:  ## e.g. 3222790 for http://stackoverflow.com/users/3222790/jark
+  stackoverflow:  ## e.g. 3222790 for http://stackoverflow.com/users/xx/xx
 ## if you set them, the corresponding  share button will show on the footer
 
 #### Toc
@@ -96,6 +96,7 @@ links:
   公益: http://lomo.space/404.html
   大漠W3C: http://www.w3cplus.com/
   Guru99: https://www.guru99.com/
+  DevDocs: https://devdocs.io/
 
 
 
@@ -178,11 +179,11 @@ tinysou_search:     ## http://tinysou.com/
 # Valine comments https://valine.js.org
 valine:
   enable: ture
-  appid: USVweEowdqGkhEkDPOYL5i0l-gzGzoHsz # your leancloud appid
-  appkey: QjyH8vNrEJTrO5aBDqeBKlaJ # your leancloud appkey
+  appid: YK5Kb1s0spupA5TmmsfGjTDv-gzGzoHsz # your leancloud appid
+  appkey: BEav0My9p76B9y55MnYP7WhJ # your leancloud appkey
   notify: false # true/false:mail notify !!!Test,Caution. https://github.com/xCss/Valine/wiki/Valine-%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E9%82%AE%E4%BB%B6%E6%8F%90%E9%86%92%E8%AE%BE%E7%BD%AE
   verify: false # true/false:verify code
-  avatar: mm # avatar style https://github.com/xCss/Valine/wiki/avatar-setting-for-valine
+  avatar: monsterid # avatar style https://github.com/xCss/Valine/wiki/avatar-setting-for-valine
   lang: zh-cn
   placeholder: Just go go # comment box placeholder
 
