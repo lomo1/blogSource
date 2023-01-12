@@ -39,7 +39,7 @@
     "devDependencies": {
         "browser-sync": "^2.18.8",
         "gulp": "^3.9.1",
-        "gulp-livereload": "^3.8.1",
+        "gulp-livereload": "^4.0.2",
         "run-sequence": "^1.2.0"
     }
 }
