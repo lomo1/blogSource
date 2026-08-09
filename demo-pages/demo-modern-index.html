@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>首页 - Lomo Space (现代设计)</title>
+    <link rel="stylesheet" href="assets/modern-shared.css">
+</head>
+<body>
+    <!-- 阅读进度条 -->
+    <div class="reading-progress">
+        <div class="reading-progress-bar" id="progress-bar"></div>
+    </div>
+
+    <header>
+        <div class="header-content">
+            <div class="site-branding">
+                <h1><span class="logo-gradient">Lomo Space</span></h1>
+                <p class="blog-motto">The unexamined life is not worth living.</p>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">Home</a></li>
+                    <li><a href="#">Essay</a></li>
+                    <li><a href="#">Read</a></li>
+                    <li><a href="#">Write</a></li>
+                    <li><a href="#">Code</a></li>
+                    <li><a href="#">Study</a></li>
+                    <li><a href="#">About</a></li>
+                    <li>
+                        <button class="theme-toggle" id="theme-toggle" aria-label="切换主题">
+                            <span id="theme-icon">🌙</span>
+                        </button>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div id="container">
+        <main>
+            <!-- Article 1 -->
+            <article class="article-item card">
+                <h2><a href="demo-modern-post.html">Hexo 博客升级到 8.1.2 版本</a></h2>
+                <div class="meta">
+                    <span>📅 2026-08-09</span>
+                    <span>📁 技术</span>
+                    <span>🏷️ Hexo, Node.js</span>
+                    <span>⏱️ 5 分钟阅读</span>
+                </div>
+                <div class="article-excerpt">
+                    <p>今天成功将博客从 Hexo 6.1.0 升级到了 8.1.2 版本。升级过程比预想的顺利，主要得益于提前做了详细的兼容性分析。升级的主要改动包括 Hexo 核心升级、所有插件升级到兼容版本，Node.js 环境已经是 v24.19.0...</p>
+                </div>
+                <a href="demo-modern-post.html" class="read-more">
+                    阅读全文 <span>→</span>
+                </a>
+            </article>
+
+            <!-- Article 2 -->
+            <article class="article-item card">
+                <h2><a href="#">现代 Web 设计趋势分析</a></h2>
+                <div class="meta">
+                    <span>📅 2026-08-08</span>
+                    <span>📁 设计</span>
+                    <span>🏷️ UI/UX, Design</span>
+                    <span>⏱️ 8 分钟阅读</span>
+                </div>
+                <div class="article-excerpt">
+                    <p>2024-2026 年的 Web 设计趋势呈现出几个明显的特征：暗色模式成为标配、极简主义 2.0、流式排版等。暗色模式的普及程度已经达到了 82%，这不仅仅是美观问题，更关乎用户体验和设备续航...</p>
+                </div>
+                <a href="#" class="read-more">
+                    阅读全文 <span>→</span>
+                </a>
+            </article>
+
+            <!-- Article 3 -->
+            <article class="article-item card">
+                <h2><a href="#">JavaScript 异步编程最佳实践</a></h2>
+                <div class="meta">
+                    <span>📅 2026-08-05</span>
+                    <span>📁 技术</span>
+                    <span>🏷️ JavaScript, Async</span>
+                    <span>⏱️ 12 分钟阅读</span>
+                </div>
+                <div class="article-excerpt">
+                    <p>JavaScript 的异步编程经历了从回调函数、Promise 到 async/await 的演进。本文将深入探讨现代 JavaScript 中异步编程的最佳实践，包括错误处理、并发控制、性能优化等方面...</p>
+                </div>
+                <a href="#" class="read-more">
+                    阅读全文 <span>→</span>
+                </a>
+            </article>
+
+            <!-- Article 4 -->
+            <article class="article-item card">
+                <h2><a href="#">React 18 新特性深度解析</a></h2>
+                <div class="meta">
+                    <span>📅 2026-08-03</span>
+                    <span>📁 技术</span>
+                    <span>🏷️ React, Frontend</span>
+                    <span>⏱️ 15 分钟阅读</span>
+                </div>
+                <div class="article-excerpt">
+                    <p>React 18 带来了许多激动人心的新特性，包括 Concurrent Rendering、Automatic Batching、Transitions API 等。这些特性不仅提升了应用性能，也为开发者提供了更好的用户体验控制能力...</p>
+                </div>
+                <a href="#" class="read-more">
+                    阅读全文 <span>→</span>
+                </a>
+            </article>
+
+            <!-- Article 5 -->
+            <article class="article-item card">
+                <h2><a href="#">CSS Grid 完全指南</a></h2>
+                <div class="meta">
+                    <span>📅 2026-08-01</span>
+                    <span>📁 技术</span>
+                    <span>🏷️ CSS, Layout</span>
+                    <span>⏱️ 10 分钟阅读</span>
+                </div>
+                <div class="article-excerpt">
+                    <p>CSS Grid 是现代网页布局的基石，它提供了强大的二维布局能力。本文将从基础概念到高级技巧，全面讲解 CSS Grid 的使用方法，包括网格容器、网格项、对齐方式、响应式设计等内容...</p>
+                </div>
+                <a href="#" class="read-more">
+                    阅读全文 <span>→</span>
+                </a>
+            </article>
+
+            <!-- Pagination -->
+            <div class="pagination">
+                <span class="current">1</span>
+                <a href="#">2</a>
+                <a href="#">3</a>
+                <a href="#">4</a>
+                <a href="#">5</a>
+                <a href="#">下一页</a>
+            </div>
+        </main>
+
+        <aside>
+            <!-- Categories Widget -->
+            <div class="widget card">
+                <h3 class="widget-title">📂 分类</h3>
+                <ul>
+                    <li><a href="demo-modern-category.html">技术 <span class="count">(45)</span></a></li>
+                    <li><a href="#">设计 <span class="count">(23)</span></a></li>
+                    <li><a href="#">随笔 <span class="count">(18)</span></a></li>
+                    <li><a href="#">读书 <span class="count">(12)</span></a></li>
+                </ul>
+            </div>
+
+            <!-- Tags Widget -->
+            <div class="widget card">
+                <h3 class="widget-title">🏷️ 标签</h3>
+                <div class="tag-cloud">
+                    <a href="#" class="tag">JavaScript</a>
+                    <a href="#" class="tag">React</a>
+                    <a href="#" class="tag">Hexo</a>
+                    <a href="#" class="tag">Node.js</a>
+                    <a href="#" class="tag">CSS</a>
+                    <a href="#" class="tag">Design</a>
+                    <a href="#" class="tag">AI</a>
+                    <a href="#" class="tag">Python</a>
+                </div>
+            </div>
+
+            <!-- Recent Posts Widget -->
+            <div class="widget card">
+                <h3 class="widget-title">📝 最新文章</h3>
+                <ul>
+                    <li><a href="demo-modern-post.html">Hexo 博客升级到 8.1.2</a></li>
+                    <li><a href="#">现代 Web 设计趋势分析</a></li>
+                    <li><a href="#">JavaScript 异步编程最佳实践</a></li>
+                    <li><a href="#">React 18 新特性深度解析</a></li>
+                    <li><a href="#">CSS Grid 完全指南</a></li>
+                </ul>
+            </div>
+
+            <!-- Archive Widget -->
+            <div class="widget card">
+                <h3 class="widget-title">📅 归档</h3>
+                <ul>
+                    <li><a href="demo-modern-archive.html">2026年8月 <span class="count">(5)</span></a></li>
+                    <li><a href="#">2026年7月 <span class="count">(8)</span></a></li>
+                    <li><a href="#">2026年6月 <span class="count">(12)</span></a></li>
+                </ul>
+            </div>
+        </aside>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Lomo Space. All rights reserved.</p>
+        <p>Powered by Hexo · Theme: Modern Jacman</p>
+        <p>
+            <a href="#">GitHub</a>
+            <a href="#">Twitter</a>
+            <a href="#">RSS</a>
+        </p>
+    </footer>
+
+    <script>
+        // 暗色模式切换
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+        const html = document.documentElement;
+
+        // 初始化主题
+        const savedTheme = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const initialTheme = savedTheme || (prefersDark ? 'dark' : 'light');
+
+        html.setAttribute('data-theme', initialTheme);
+        themeIcon.textContent = initialTheme === 'dark' ? '☀️' : '🌙';
+
+        // 切换主题
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            themeIcon.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+        });
+
+        // 阅读进度条
+        window.addEventListener('scroll', () => {
+            const winScroll = document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+
+            document.getElementById('progress-bar').style.width = scrolled + '%';
+        });
+    </script>
+</body>
+</html>

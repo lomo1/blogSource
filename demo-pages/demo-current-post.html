@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hexo 博客升级到 8.1.2 版本 - Lomo Space (当前设计)</title>
+    <link rel="stylesheet" href="assets/current-shared.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="site-branding">
+                <h1>Lomo Space</h1>
+                <p class="blog-motto">The unexamined life is not worth living.</p>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="demo-current-index.html">Home</a></li>
+                    <li><a href="#">Essay</a></li>
+                    <li><a href="#">Read</a></li>
+                    <li><a href="#">Write</a></li>
+                    <li><a href="#">Code</a></li>
+                    <li><a href="#">Study</a></li>
+                    <li><a href="#">About</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div id="container">
+        <main>
+            <!-- Article Detail -->
+            <article class="article-detail">
+                <h1 class="article-title">Hexo 博客升级到 8.1.2 版本</h1>
+
+                <div class="meta">
+                    <span>发表于: 2026-08-09</span>
+                    <span>分类: <a href="demo-current-category.html">技术</a></span>
+                    <span>标签: <a href="#">Hexo</a>, <a href="#">Node.js</a></span>
+                </div>
+
+                <div class="article-content">
+                    <h2>升级背景</h2>
+                    <p>我的 Hexo 博客一直运行在 6.1.0 版本，随着时间推移，许多新特性和安全补丁都无法享受。最近决定对整个博客系统进行一次全面升级，目标版本是当前最新的 8.1.2。</p>
+
+                    <h2>升级前的准备</h2>
+                    <p>在正式升级之前，我做了以下准备工作：</p>
+                    <ul>
+                        <li>创建了专门的升级开发分支 <code>hexo-upgrade</code></li>
+                        <li>详细分析了所有依赖包的兼容性</li>
+                        <li>备份了现有的博客内容和配置文件</li>
+                        <li>检查了 Jacman 主题与新版本的兼容性</li>
+                    </ul>
+
+                    <h2>升级过程</h2>
+                    <p>升级过程比预想的顺利，主要步骤包括：</p>
+
+                    <h3>1. 升级 Hexo 核心</h3>
+                    <pre><code>npm install hexo@^8.1.2 --save</code></pre>
+                    <p>Hexo 8.x 版本带来了许多性能优化和新特性，包括更快的生成速度、更好的插件系统等。</p>
+
+                    <h3>2. 升级插件</h3>
+                    <p>所有插件都升级到了与 Hexo 8 兼容的版本：</p>
+                    <ul>
+                        <li><strong>hexo-deployer-git</strong>: 3.0.0 → 4.0.0</li>
+                        <li><strong>hexo-generator-archive</strong>: 1.0.0 → 2.0.0</li>
+                        <li><strong>hexo-generator-category</strong>: 1.0.0 → 2.0.0</li>
+                        <li><strong>hexo-generator-index</strong>: 2.0.0 → 4.0.0</li>
+                        <li><strong>hexo-generator-tag</strong>: 1.0.1 → 2.0.0</li>
+                        <li><strong>hexo-renderer-ejs</strong>: 2.0.0 → 3.0.0</li>
+                        <li><strong>hexo-renderer-marked</strong>: 5.0.0 → 6.3.0</li>
+                        <li><strong>hexo-renderer-stylus</strong>: 2.1.0 → 3.0.1</li>
+                        <li><strong>hexo-server</strong>: 3.0.0 → 4.0.0</li>
+                    </ul>
+
+                    <h3>3. 测试验证</h3>
+                    <p>升级完成后，进行了全面的测试：</p>
+                    <ul>
+                        <li>本地生成测试：<code>hexo generate</code> - 成功生成 303 个文件</li>
+                        <li>本地预览测试：<code>hexo server</code> - 页面正常显示</li>
+                        <li>部署测试：<code>hexo deploy</code> - 顺利部署到 GitHub Pages</li>
+                    </ul>
+
+                    <h2>遇到的问题</h2>
+                    <p>整个升级过程非常顺利，没有遇到任何兼容性问题。这主要得益于：</p>
+                    <ol>
+                        <li>Jacman 主题使用的是标准的 Hexo API，没有使用废弃的特性</li>
+                        <li>所有插件都有与 Hexo 8 兼容的版本</li>
+                        <li>升级前做了充分的兼容性分析</li>
+                    </ol>
+
+                    <h2>升级收益</h2>
+                    <p>升级到 Hexo 8.1.2 后，获得了以下改进：</p>
+                    <ul>
+                        <li><strong>性能提升</strong>：生成速度明显加快</li>
+                        <li><strong>安全性</strong>：修复了旧版本中的安全漏洞</li>
+                        <li><strong>新特性</strong>：支持更多的插件和功能扩展</li>
+                        <li><strong>维护性</strong>：使用最新版本更容易获得社区支持</li>
+                    </ul>
+
+                    <h2>总结</h2>
+                    <p>这次 Hexo 升级非常成功，没有遇到任何问题。对于还在使用旧版本 Hexo 的朋友，建议尽早升级到最新版本，以享受更好的性能和更多的新特性。</p>
+                    <p>下一步计划对 Jacman 主题进行现代化改造，引入暗色模式、响应式布局等现代设计元素。</p>
+
+                    <blockquote>
+                        <p>提示：升级前一定要做好备份，并在开发分支上进行测试，确认无误后再合并到主分支。</p>
+                    </blockquote>
+                </div>
+
+                <div class="article-footer">
+                    <div class="article-tags">
+                        <strong>标签：</strong>
+                        <a href="#">Hexo</a>
+                        <a href="#">Node.js</a>
+                        <a href="#">升级</a>
+                        <a href="#">博客</a>
+                    </div>
+
+                    <div class="article-nav">
+                        <div class="article-nav-prev">
+                            <span>上一篇：</span>
+                            <a href="#">现代 Web 设计趋势分析</a>
+                        </div>
+                        <div class="article-nav-next">
+                            <span>下一篇：</span>
+                            <a href="#">没有了</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Comments Section -->
+                <div class="comments-section">
+                    <h3>评论</h3>
+                    <div class="comment-notice">
+                        <p>评论功能暂未开启</p>
+                    </div>
+                </div>
+            </article>
+        </main>
+
+        <aside>
+            <!-- Categories Widget -->
+            <div class="widget">
+                <h3 class="widget-title">分类</h3>
+                <ul>
+                    <li><a href="demo-current-category.html">技术 <span class="count">(45)</span></a></li>
+                    <li><a href="#">设计 <span class="count">(23)</span></a></li>
+                    <li><a href="#">随笔 <span class="count">(18)</span></a></li>
+                    <li><a href="#">读书 <span class="count">(12)</span></a></li>
+                </ul>
+            </div>
+
+            <!-- Tags Widget -->
+            <div class="widget">
+                <h3 class="widget-title">标签</h3>
+                <div class="tag-cloud">
+                    <a href="#">JavaScript</a>
+                    <a href="#">React</a>
+                    <a href="#">Hexo</a>
+                    <a href="#">Node.js</a>
+                    <a href="#">CSS</a>
+                    <a href="#">Design</a>
+                    <a href="#">AI</a>
+                    <a href="#">Python</a>
+                </div>
+            </div>
+
+            <!-- Recent Posts Widget -->
+            <div class="widget">
+                <h3 class="widget-title">最新文章</h3>
+                <ul>
+                    <li><a href="#">Hexo 博客升级到 8.1.2</a></li>
+                    <li><a href="#">现代 Web 设计趋势分析</a></li>
+                    <li><a href="#">JavaScript 异步编程最佳实践</a></li>
+                    <li><a href="#">React 18 新特性深度解析</a></li>
+                    <li><a href="#">CSS Grid 完全指南</a></li>
+                </ul>
+            </div>
+
+            <!-- Archive Widget -->
+            <div class="widget">
+                <h3 class="widget-title">归档</h3>
+                <ul>
+                    <li><a href="demo-current-archive.html">2026年8月 <span class="count">(5)</span></a></li>
+                    <li><a href="#">2026年7月 <span class="count">(8)</span></a></li>
+                    <li><a href="#">2026年6月 <span class="count">(12)</span></a></li>
+                </ul>
+            </div>
+        </aside>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Lomo Space. All rights reserved.</p>
+        <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> | Theme: Jacman</p>
+        <p>
+            <a href="#">GitHub</a> |
+            <a href="#">Twitter</a> |
+            <a href="#">RSS</a>
+        </p>
+    </footer>
+</body>
+</html>
