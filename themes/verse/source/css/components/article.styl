@@ -1,0 +1,235 @@
+// ===========================
+// Article Styles
+// ===========================
+
+.article-list
+  display: flex
+  flex-direction: column
+  gap: var(--space-8)
+
+.article-item
+  background: var(--bg-secondary)
+  border-radius: var(--radius-xl)
+  padding: var(--space-8)
+  box-shadow: var(--shadow-md)
+  transition: all var(--transition-slow)
+  border: 1px solid var(--border-primary)
+
+  &:hover
+    box-shadow: var(--shadow-lg)
+    transform: translateY(-2px)
+
+// Article header
+.article-header
+  margin-bottom: var(--space-6)
+
+.article-title
+  font-size: var(--font-size-2xl)
+  font-weight: 700
+  color: var(--text-primary)
+  margin-bottom: var(--space-4)
+  line-height: 1.2
+  letter-spacing: -0.02em
+
+  a
+    color: var(--text-primary)
+    transition: color var(--transition-base)
+
+    &:hover
+      color: var(--color-primary-500)
+
+// Article meta
+.article-meta
+  display: flex
+  gap: var(--space-4)
+  font-size: var(--font-size-xs)
+  color: var(--text-tertiary)
+  flex-wrap: wrap
+
+  span, time
+    display: flex
+    align-items: center
+    gap: var(--space-2)
+
+  i
+    font-size: 0.9em
+
+  .separator
+    margin: 0 var(--space-1)
+
+// Article content
+.article-content
+  font-size: var(--font-size-base)
+  line-height: 1.8
+  color: var(--text-secondary)
+  margin-bottom: var(--space-6)
+  overflow-x: hidden
+  word-wrap: break-word
+
+  p
+    margin-bottom: var(--space-4)
+
+  h2
+    margin-top: var(--space-8)
+    padding-top: var(--space-6)
+    border-top: 1px solid var(--border-primary)
+
+  h3
+    margin-top: var(--space-6)
+
+  ul, ol
+    padding-left: var(--space-6)
+    margin-bottom: var(--space-4)
+
+  li
+    margin-bottom: var(--space-2)
+
+  img
+    border-radius: var(--radius-lg)
+    margin: var(--space-6) 0
+    max-width: 100%
+    height: auto
+
+  pre
+    overflow-x: auto
+    max-width: 100%
+
+  code
+    word-break: break-word
+
+// Article excerpt
+.article-excerpt
+  font-size: var(--font-size-base)
+  line-height: 1.8
+  color: var(--text-secondary)
+  margin-bottom: var(--space-6)
+
+.article-more
+  .read-more
+    display: inline-flex
+    align-items: center
+    gap: var(--space-2)
+    color: var(--color-primary-500)
+    font-weight: 500
+    padding: var(--space-3) var(--space-4)
+    border-radius: var(--radius-md)
+    border: 1px solid var(--color-primary-500)
+    transition: all var(--transition-base)
+
+    &:hover
+      background: var(--color-primary-500)
+      color: white
+      transform: translateX(4px)
+
+// Article footer
+.article-footer
+  margin-top: var(--space-8)
+  padding-top: var(--space-6)
+  border-top: 1px solid var(--border-primary)
+
+.article-tags
+  display: flex
+  flex-wrap: wrap
+  gap: var(--space-2)
+  align-items: center
+
+  i
+    color: var(--text-tertiary)
+
+  .tag-list
+    display: flex
+    flex-wrap: wrap
+    gap: var(--space-2)
+    list-style: none
+    margin: 0
+
+  .tag-list-item
+    a
+      display: inline-block
+      padding: var(--space-2) var(--space-3)
+      background: var(--bg-tertiary)
+      color: var(--text-secondary)
+      font-size: var(--font-size-xs)
+      border-radius: var(--radius-md)
+      border: 1px solid var(--border-primary)
+      transition: all var(--transition-base)
+
+      &:hover
+        background: var(--color-primary-500)
+        color: white
+        border-color: var(--color-primary-500)
+        transform: translateY(-1px)
+
+// Post navigation (prev/next)
+.post-nav
+  display: grid
+  grid-template-columns: 1fr 1fr
+  gap: var(--space-4)
+  margin-top: var(--space-8)
+
+.post-nav-item
+  background: var(--bg-tertiary)
+  border-radius: var(--radius-lg)
+  padding: var(--space-4)
+  transition: all var(--transition-base)
+
+  &:hover
+    background: var(--bg-secondary)
+    box-shadow: var(--shadow-md)
+
+  a
+    color: var(--text-secondary)
+    display: block
+
+.post-nav-direction
+  font-size: var(--font-size-xs)
+  color: var(--text-tertiary)
+  margin-bottom: var(--space-2)
+  display: flex
+  align-items: center
+  gap: var(--space-2)
+
+.post-nav-title
+  font-size: var(--font-size-sm)
+  font-weight: 600
+  color: var(--text-primary)
+
+.post-nav-next
+  text-align: right
+
+  .post-nav-direction
+    justify-content: flex-end
+
+// Full post view
+.article-full
+  .article-content
+    max-width: 900px
+
+// Animation
+@keyframes fadeInUp
+  from
+    opacity: 0
+    transform: translateY(20px)
+  to
+    opacity: 1
+    transform: translateY(0)
+
+.article-item
+  animation: fadeInUp 0.6s ease backwards
+
+.article-item:nth-child(1) { animation-delay: 0.1s }
+.article-item:nth-child(2) { animation-delay: 0.2s }
+.article-item:nth-child(3) { animation-delay: 0.3s }
+.article-item:nth-child(4) { animation-delay: 0.4s }
+.article-item:nth-child(5) { animation-delay: 0.5s }
+
+// Responsive
+@media (max-width: 768px)
+  .post-nav
+    grid-template-columns: 1fr
+
+  .post-nav-next
+    text-align: left
+
+    .post-nav-direction
+      justify-content: flex-start

@@ -1,0 +1,327 @@
+# ===========================
+# Hexo Theme Verse Configuration
+# ===========================
+# Version: 1.0.0
+# Documentation: https://github.com/yourusername/hexo-theme-verse
+
+# ===========================
+# Menu Navigation
+# ===========================
+# Customize your navigation menu
+# Format: Title: /path or /url
+menu:
+  Home: /
+  Essay: /categories/essay
+  Read: /categories/read
+  Write: /categories/write
+  Code: /categories/code
+  Study: /categories/study
+  About: /about
+
+# ===========================
+# Site Branding
+# ===========================
+# Logo and favicon
+favicon: /img/favicon.ico
+apple_icon: /img/apple-touch-icon.png
+
+# Site banner (used in header if enabled)
+banner:
+  enable: false
+  image: /img/banner.jpg
+
+# ===========================
+# Theme Appearance
+# ===========================
+# Primary theme color
+theme_color: '#2ca6cb'
+
+# Dark mode
+dark_mode:
+  enable: true
+  default: auto  # auto, light, dark
+
+# ===========================
+# Layout Configuration
+# ===========================
+# Sidebar
+sidebar:
+  enable: true
+  position: right  # left or right
+  display: post    # always, post, page, hide
+
+# Table of Contents
+toc:
+  enable: true
+  number: true     # Show numbering
+  max_depth: 3     # Maximum heading depth
+
+# Reading progress bar
+reading_progress:
+  enable: true
+  color: '#2ca6cb'
+
+# ===========================
+# Homepage Settings
+# ===========================
+# Index page configuration
+index:
+  expand: false              # Show full posts or excerpts
+  excerpt_length: 200        # Excerpt length in characters
+  excerpt_link: "Read More"  # Read more button text
+
+# Posts per page
+per_page: 10
+
+# ===========================
+# Post Settings
+# ===========================
+# Post meta information display
+post_meta:
+  date: true
+  updated: false
+  categories: true
+  tags: true
+  word_count: true
+  reading_time: true
+
+# Post navigation (prev/next)
+post_nav:
+  enable: true
+
+# Post share buttons
+share:
+  enable: false
+  platforms:
+    - twitter
+    - facebook
+    - linkedin
+
+# ===========================
+# Sidebar Widgets
+# ===========================
+# Widget order and configuration
+widgets:
+  - category
+  - tag
+  - tagcloud
+  - archive
+  - recent_posts
+
+# Widget: Recent Posts
+recent_posts:
+  enable: true
+  limit: 5
+  show_date: true
+
+# Widget: Tag Cloud
+tagcloud:
+  enable: true
+  min_font: 12
+  max_font: 30
+  amount: 50
+  color: true
+  start_color: '#ccc'
+  end_color: '#111'
+
+# ===========================
+# Author Information
+# ===========================
+author:
+  name: "Your Name"
+  avatar: /img/avatar.jpg
+  bio: "A passionate developer"
+  location: "Earth"
+
+# Social links (displayed in sidebar)
+social:
+  github:
+  twitter:
+  linkedin:
+  email:
+  rss: /atom.xml
+
+# ===========================
+# Friend Links
+# ===========================
+# Links widget
+links:
+  enable: false
+  title: "Links"
+  items:
+    # Example Site: https://example.com
+
+# ===========================
+# Comment System
+# ===========================
+comments:
+  enable: false
+  provider: valine  # disqus, valine, gitalk, utterances, giscus
+
+# Disqus
+disqus:
+  shortname:
+
+# Valine (LeanCloud)
+valine:
+  appId:
+  appKey:
+  placeholder: "Leave a comment..."
+  avatar: mp
+  pageSize: 10
+  lang: en
+
+# Gitalk (GitHub Issues)
+gitalk:
+  clientID:
+  clientSecret:
+  repo:
+  owner:
+  admin: []
+
+# Utterances (GitHub Issues)
+utterances:
+  repo:
+  issue_term: pathname
+  theme: github-light
+
+# Giscus (GitHub Discussions)
+giscus:
+  repo:
+  repo_id:
+  category:
+  category_id:
+  mapping: pathname
+  theme: light
+
+# ===========================
+# Search Configuration
+# ===========================
+search:
+  enable: false
+  provider: local  # local, google, algolia
+
+# Local search
+local_search:
+  trigger: auto
+  top_n_per_article: 1
+
+# Google Custom Search
+google_search:
+  cx:
+
+# Algolia Search
+algolia:
+  applicationID:
+  apiKey:
+  indexName:
+
+# ===========================
+# Code Highlighting
+# ===========================
+# Syntax highlighting theme
+highlight:
+  enable: true
+  theme: night  # default, night, ocean
+  line_number: true
+  wrap: true
+  copy_button: true
+
+# ===========================
+# Math Rendering
+# ===========================
+# Math formula support
+math:
+  enable: false
+  engine: mathjax  # mathjax, katex
+
+mathjax:
+  cdn: https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+
+katex:
+  cdn: https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css
+
+# ===========================
+# Analytics
+# ===========================
+# Google Analytics
+google_analytics:
+
+# Baidu Analytics
+baidu_analytics:
+
+# Cloudflare Web Analytics
+cloudflare_analytics:
+
+# ===========================
+# SEO & Social
+# ===========================
+# Open Graph
+open_graph:
+  enable: true
+  type: blog
+  twitter_card: summary_large_image
+  twitter_site:
+  google_plus:
+  fb_app_id:
+
+# Structured Data (JSON-LD)
+structured_data:
+  enable: true
+
+# ===========================
+# Performance
+# ===========================
+# CDN Configuration
+cdn:
+  enable: false
+  jquery: https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js
+  fontawesome: https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css
+
+# Lazy loading images
+lazyload:
+  enable: true
+  placeholder: /img/loading.gif
+
+# PWA (Progressive Web App)
+pwa:
+  enable: false
+  manifest: /manifest.json
+  theme_color: '#2ca6cb'
+  icons:
+    - /img/icons/icon-192.png
+    - /img/icons/icon-512.png
+
+# ===========================
+# Creative Commons License
+# ===========================
+creative_commons:
+  enable: false
+  license: by-nc-sa  # by, by-sa, by-nd, by-nc, by-nc-sa, by-nc-nd
+  language: deed.en
+
+# ===========================
+# Misc
+# ===========================
+# Back to top button
+back_to_top:
+  enable: true
+  scrollpercent: true
+
+# Smooth scroll
+smooth_scroll: true
+
+# External link icon
+external_link:
+  enable: false
+  icon: fa-external-link
+
+# RSS
+rss: /atom.xml
+
+# Busuanzi visitor counter
+busuanzi:
+  enable: false
+
+# Website start date (for copyright)
+since: 2024

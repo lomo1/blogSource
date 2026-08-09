@@ -1,0 +1,32 @@
+{
+  "name": "hexo-theme-verse",
+  "version": "1.0.0",
+  "description": "A clean, modern and elegant theme for Hexo",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "hexo",
+    "theme",
+    "blog",
+    "verse",
+    "modern",
+    "clean",
+    "elegant"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/hexo-theme-verse.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yourusername/hexo-theme-verse/issues"
+  },
+  "homepage": "https://github.com/yourusername/hexo-theme-verse#readme",
+  "engines": {
+    "node": ">=14.0.0",
+    "hexo": ">=6.0.0"
+  }
+}

@@ -1,0 +1,88 @@
+<div class="archive-page">
+  <header class="archive-header">
+    <h1 class="archive-title">
+      <% if (is_category()) { %>
+        <%= __('category') %>: <%= page.category %>
+      <% } else if (is_tag()) { %>
+        <%= __('tag') %>: <%= page.tag %>
+      <% } else if (is_year()) { %>
+        <%= __('archive_b', page.year) %>
+      <% } else if (is_month()) { %>
+        <%= __('archive_b', page.year + '/' + page.month) %>
+      <% } else { %>
+        <%= __('archive_a') %>
+      <% } %>
+    </h1>
+    <p class="archive-count">
+      <%= __('page', page.total) %>
+    </p>
+  </header>
+
+  <div class="archive-content">
+    <%
+    var lastYear = 0;
+    var lastMonth = 0;
+    %>
+
+    <% page.posts.each(function(post) { %>
+      <%
+      var year = post.date.year();
+      var month = post.date.month() + 1; // 0-based
+      var showYear = year !== lastYear;
+      var showMonth = year !== lastYear || month !== lastMonth;
+
+      lastYear = year;
+      lastMonth = month;
+      %>
+
+      <% if (showYear) { %>
+        <% if (lastYear !== year && lastYear !== 0) { %>
+          </ul></div></section>
+        <% } %>
+        <section class="archive-year-section">
+          <h2 class="archive-year"><%= year %></h2>
+      <% } %>
+
+      <% if (showMonth) { %>
+        <% if (lastMonth !== month && lastMonth !== 0 && !showYear) { %>
+          </ul></div>
+        <% } %>
+        <div class="archive-month-section">
+          <h3 class="archive-month"><%= month %>月</h3>
+          <ul class="archive-list">
+      <% } %>
+
+            <li class="archive-item">
+              <time class="archive-date" datetime="<%= post.date.toISOString() %>">
+                <%= post.date.format('MM-DD') %>
+              </time>
+              <a href="<%- url_for(post.path) %>" class="archive-link">
+                <%= post.title %>
+              </a>
+              <% if (post.categories && post.categories.length) { %>
+                <span class="archive-category">
+                  <%= post.categories.first().name %>
+                </span>
+              <% } %>
+            </li>
+
+    <% }); %>
+
+    <% if (page.posts.length > 0) { %>
+          </ul>
+        </div>
+      </section>
+    <% } %>
+  </div>
+
+  <% if (page.total > 1) { %>
+    <nav class="pagination">
+      <%- paginator({
+        prev_text: '← ' + __('prev_page'),
+        next_text: __('next_page') + ' →',
+        mid_size: 2,
+        end_size: 1
+      }) %>
+    </nav>
+  <% } %>
+</div>

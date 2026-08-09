@@ -1,0 +1,18 @@
+<% if (theme.valine.appId && theme.valine.appKey) { %>
+  <div id="vcomments"></div>
+  <script src="https://unpkg.com/valine@latest/dist/Valine.min.js"></script>
+  <script>
+    new Valine({
+      el: '#vcomments',
+      appId: '<%= theme.valine.appId %>',
+      appKey: '<%= theme.valine.appKey %>',
+      placeholder: '<%= theme.valine.placeholder || "Leave a comment..." %>',
+      avatar: '<%= theme.valine.avatar || "mp" %>',
+      pageSize: <%= theme.valine.pageSize || 10 %>,
+      lang: '<%= theme.valine.lang || "en" %>',
+      visitor: true,
+      recordIP: true,
+      enableQQ: true
+    });
+  </script>
+<% } %>

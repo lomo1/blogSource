@@ -1,0 +1,27 @@
+<% if (page.prev || page.next) { %>
+  <nav class="post-nav">
+    <% if (page.prev) { %>
+      <div class="post-nav-item post-nav-prev">
+        <a href="<%- url_for(page.prev.path) %>" rel="prev">
+          <div class="post-nav-direction">
+            <i class="fas fa-chevron-left"></i>
+            <%= __('prev_post') %>
+          </div>
+          <div class="post-nav-title"><%= page.prev.title %></div>
+        </a>
+      </div>
+    <% } %>
+
+    <% if (page.next) { %>
+      <div class="post-nav-item post-nav-next">
+        <a href="<%- url_for(page.next.path) %>" rel="next">
+          <div class="post-nav-direction">
+            <%= __('next_post') %>
+            <i class="fas fa-chevron-right"></i>
+          </div>
+          <div class="post-nav-title"><%= page.next.title %></div>
+        </a>
+      </div>
+    <% } %>
+  </nav>
+<% } %>

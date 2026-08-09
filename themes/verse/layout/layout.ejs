@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="<%= config.language || 'en' %>">
+<%- partial('_partial/head') %>
+<body>
+  <%- partial('_partial/header') %>
+
+  <div id="container">
+    <% if (theme.sidebar.enable && (theme.sidebar.display === 'always' || (theme.sidebar.display === 'post' && is_post()) || (theme.sidebar.display === 'page' && is_page()))) { %>
+      <main id="main">
+        <%- body %>
+      </main>
+      <%- partial('_partial/sidebar') %>
+    <% } else { %>
+      <main id="main" class="no-sidebar">
+        <%- body %>
+      </main>
+    <% } %>
+  </div>
+
+  <%- partial('_partial/footer') %>
+  <%- partial('_partial/after_footer') %>
+
+  <% if (theme.back_to_top.enable) { %>
+    <button id="back-to-top" aria-label="<%= __('to_top') %>">
+      <i class="fa fa-chevron-up"></i>
+      <% if (theme.back_to_top.scrollpercent) { %>
+        <span class="progress-indicator"></span>
+      <% } %>
+    </button>
+  <% } %>
+</body>
+</html>

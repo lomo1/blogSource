@@ -1,0 +1,65 @@
+# Navigation
+menu: Menu
+home: Home
+archives: Archives
+categories: Categories
+tags: Tags
+about: About
+search: Search
+
+# Post Meta
+prev: Previous
+next: Next
+comment: Comment
+comments: Comments
+toc: Table of Contents
+contents: Contents
+recent_posts: Recent Posts
+updated: Updated
+published: Published
+reading_time: "%s min read"
+word_count: "%s words"
+
+# Archive
+archive_a: Archives
+archive_b: "Archives: %s"
+archive_date: MMM YYYY
+
+# Pagination
+page: "Page %d"
+prev_page: Previous
+next_page: Next
+prev_post: Previous Post
+next_post: Next Post
+
+# Widget
+category: Categories
+tag: Tags
+tagcloud: Tag Cloud
+links: Links
+rss: RSS
+
+# Sidebar
+show_sidebar: Show Sidebar
+hide_sidebar: Hide Sidebar
+to_top: Back to Top
+
+# Footer
+powered_by: "Powered by %s"
+theme_by: "Theme - %s"
+
+# 404
+not_found: Page Not Found
+not_found_desc: The page you are looking for doesn't exist.
+
+# Time
+just_now: Just now
+minutes_ago: "%s minutes ago"
+hours_ago: "%s hours ago"
+days_ago: "%s days ago"
+weeks_ago: "%s weeks ago"
+months_ago: "%s months ago"
+
+# Buttons
+read_more: Read More
+share: Share

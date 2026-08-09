@@ -1,0 +1,16 @@
+<% if (theme.links.enable && theme.links.items) { %>
+  <div class="widget links-widget">
+    <h3 class="widget-title"><%= theme.links.title || __('links') %></h3>
+    <div class="widget-content">
+      <ul class="links-list">
+        <% for (var name in theme.links.items) { %>
+          <li>
+            <a href="<%= theme.links.items[name] %>" target="_blank" rel="noopener">
+              <%= name %>
+            </a>
+          </li>
+        <% } %>
+      </ul>
+    </div>
+  </div>
+<% } %>

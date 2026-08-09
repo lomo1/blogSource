@@ -1,0 +1,27 @@
+<div class="category-page">
+  <header class="category-header">
+    <h1 class="category-title">
+      <%= __('category') %>: <%= page.category %>
+    </h1>
+    <p class="category-count">
+      <%= page.posts.length %> <%= page.posts.length > 1 ? __('comments') : __('comment') %>
+    </p>
+  </header>
+
+  <div class="article-list">
+    <% page.posts.each(function(post) { %>
+      <%- partial('_partial/article', {post: post, index: true}) %>
+    <% }); %>
+  </div>
+
+  <% if (page.total > 1) { %>
+    <nav class="pagination">
+      <%- paginator({
+        prev_text: '← ' + __('prev_page'),
+        next_text: __('next_page') + ' →',
+        mid_size: 2,
+        end_size: 1
+      }) %>
+    </nav>
+  <% } %>
+</div>

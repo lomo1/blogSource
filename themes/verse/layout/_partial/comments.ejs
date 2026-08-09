@@ -1,0 +1,17 @@
+<% if (theme.comments.enable && page.comments !== false) { %>
+  <div id="comments" class="comments-section">
+    <h3 class="comments-title"><%= __('comments') %></h3>
+
+    <% if (theme.comments.provider === 'disqus') { %>
+      <%- partial('comment/disqus') %>
+    <% } else if (theme.comments.provider === 'valine') { %>
+      <%- partial('comment/valine') %>
+    <% } else if (theme.comments.provider === 'gitalk') { %>
+      <%- partial('comment/gitalk') %>
+    <% } else if (theme.comments.provider === 'utterances') { %>
+      <%- partial('comment/utterances') %>
+    <% } else if (theme.comments.provider === 'giscus') { %>
+      <%- partial('comment/giscus') %>
+    <% } %>
+  </div>
+<% } %>

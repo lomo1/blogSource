@@ -1,0 +1,162 @@
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <%
+  var title = page.title;
+  if (is_archive()){
+    title = __('archive_a');
+    if (is_month()){
+      title += ': ' + page.year + '/' + page.month;
+    } else if (is_year()){
+      title += ': ' + page.year;
+    }
+  } else if (is_category()){
+    title = __('category') + ': ' + page.category;
+  } else if (is_tag()){
+    title = __('tag') + ': ' + page.tag;
+  }
+  %>
+  <title><% if (title){ %><%= title %> | <% } %><%= config.title %></title>
+
+  <meta name="description" content="<%= page.description || page.excerpt || config.description || '' %>">
+  <meta name="keywords" content="<%= (page.tags && page.tags.length ? page.tags.map(tag => tag.name).join(',') : '') || config.keywords || '' %>">
+  <meta name="author" content="<%= config.author || theme.author.name %>">
+
+  <!-- Favicon -->
+  <% if (theme.favicon) { %>
+    <link rel="icon" href="<%- url_for(theme.favicon) %>">
+  <% } %>
+  <% if (theme.apple_icon) { %>
+    <link rel="apple-touch-icon" href="<%- url_for(theme.apple_icon) %>">
+  <% } %>
+
+  <!-- Open Graph -->
+  <% if (theme.open_graph.enable) { %>
+    <meta property="og:type" content="<%= is_post() ? 'article' : 'website' %>">
+    <meta property="og:title" content="<%= title || config.title %>">
+    <meta property="og:url" content="<%= page.permalink || config.url %>">
+    <meta property="og:site_name" content="<%= config.title %>">
+    <meta property="og:description" content="<%= page.description || page.excerpt || config.description || '' %>">
+    <meta property="og:locale" content="<%= (config.language || 'en').replace('-', '_') %>">
+    <% if (page.cover || theme.banner.image) { %>
+      <meta property="og:image" content="<%= url_for(page.cover || theme.banner.image) %>">
+    <% } %>
+    <% if (is_post()) { %>
+      <meta property="article:published_time" content="<%= page.date.toISOString() %>">
+      <% if (page.updated) { %>
+        <meta property="article:modified_time" content="<%= page.updated.toISOString() %>">
+      <% } %>
+      <% if (page.tags && page.tags.length) { %>
+        <% page.tags.forEach(function(tag) { %>
+          <meta property="article:tag" content="<%= tag.name %>">
+        <% }); %>
+      <% } %>
+    <% } %>
+
+    <!-- Twitter Card -->
+    <% if (theme.open_graph.twitter_card) { %>
+      <meta name="twitter:card" content="<%= theme.open_graph.twitter_card %>">
+      <% if (theme.open_graph.twitter_site) { %>
+        <meta name="twitter:site" content="<%= theme.open_graph.twitter_site %>">
+      <% } %>
+      <meta name="twitter:title" content="<%= title || config.title %>">
+      <meta name="twitter:description" content="<%= page.description || page.excerpt || config.description || '' %>">
+      <% if (page.cover || theme.banner.image) { %>
+        <meta name="twitter:image" content="<%= url_for(page.cover || theme.banner.image) %>">
+      <% } %>
+    <% } %>
+  <% } %>
+
+  <!-- Canonical URL -->
+  <% if (page.permalink) { %>
+    <link rel="canonical" href="<%= page.permalink %>">
+  <% } %>
+
+  <!-- RSS -->
+  <% if (theme.rss) { %>
+    <link rel="alternate" type="application/rss+xml" title="<%= config.title %>" href="<%= url_for(theme.rss) %>">
+  <% } %>
+
+  <!-- Theme Color -->
+  <meta name="theme-color" content="<%= theme.theme_color %>">
+
+  <!-- Font Awesome -->
+  <% if (theme.cdn.enable && theme.cdn.fontawesome) { %>
+    <link rel="stylesheet" href="<%= theme.cdn.fontawesome %>">
+  <% } else { %>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+  <% } %>
+
+  <!-- Main CSS -->
+  <%- css('css/style') %>
+
+  <!-- Custom Head -->
+  <%- partial('_partial/custom/head') %>
+
+  <!-- Analytics -->
+  <% if (theme.google_analytics) { %>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=<%= theme.google_analytics %>"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', '<%= theme.google_analytics %>');
+    </script>
+  <% } %>
+
+  <% if (theme.baidu_analytics) { %>
+    <!-- Baidu Analytics -->
+    <script>
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?<%= theme.baidu_analytics %>";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+  <% } %>
+
+  <!-- Math Support -->
+  <% if (theme.math.enable && page.mathjax !== false) { %>
+    <% if (theme.math.engine === 'mathjax') { %>
+      <script src="<%= theme.mathjax.cdn %>"></script>
+    <% } else if (theme.math.engine === 'katex') { %>
+      <link rel="stylesheet" href="<%= theme.katex.cdn %>">
+    <% } %>
+  <% } %>
+
+  <!-- Structured Data -->
+  <% if (theme.structured_data.enable) { %>
+    <script type="application/ld+json">
+    <%
+    var structuredData = {
+      "@context": "https://schema.org",
+      "@type": is_post() ? "BlogPosting" : "WebSite",
+      "url": page.permalink || config.url,
+      "name": title || config.title,
+      "description": page.description || page.excerpt || config.description || ''
+    };
+
+    if (is_post()) {
+      structuredData.headline = page.title;
+      structuredData.datePublished = page.date.toISOString();
+      if (page.updated) {
+        structuredData.dateModified = page.updated.toISOString();
+      }
+      structuredData.author = {
+        "@type": "Person",
+        "name": config.author || theme.author.name
+      };
+      if (page.cover) {
+        structuredData.image = url_for(page.cover);
+      }
+    }
+    %>
+    <%= JSON.stringify(structuredData, null, 2) %>
+    </script>
+  <% } %>
+</head>

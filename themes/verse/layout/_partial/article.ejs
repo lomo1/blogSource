@@ -1,0 +1,158 @@
+<%
+// Determine if this is an index/archive listing or full post
+var isIndex = index || false;
+var showExcerpt = isIndex && !theme.index.expand;
+%>
+
+<article class="article-item <%= isIndex ? 'article-index' : 'article-full' %>">
+  <% if (isIndex) { %>
+    <!-- Article Header -->
+    <header class="article-header">
+      <h2 class="article-title">
+        <a href="<%- url_for(post.path) %>"><%= post.title %></a>
+      </h2>
+
+      <!-- Article Meta -->
+      <div class="article-meta">
+        <% if (theme.post_meta.date) { %>
+          <time datetime="<%= post.date.toISOString() %>" class="article-date">
+            <i class="far fa-calendar"></i>
+            <%- date(post.date, 'YYYY-MM-DD') %>
+          </time>
+        <% } %>
+
+        <% if (theme.post_meta.categories && post.categories && post.categories.length) { %>
+          <span class="article-category">
+            <i class="far fa-folder"></i>
+            <%- list_categories(post.categories, {
+              show_count: false,
+              style: 'none',
+              separator: ', '
+            }) %>
+          </span>
+        <% } %>
+
+        <% if (theme.post_meta.tags && post.tags && post.tags.length) { %>
+          <span class="article-tags">
+            <i class="fas fa-tags"></i>
+            <%- list_tags(post.tags, {
+              show_count: false,
+              style: 'none',
+              separator: ', ',
+              amount: 3
+            }) %>
+          </span>
+        <% } %>
+
+        <% if (theme.post_meta.reading_time) { %>
+          <span class="article-reading-time">
+            <i class="far fa-clock"></i>
+            <%- reading_time(post.content) %>
+          </span>
+        <% } %>
+      </div>
+    </header>
+
+    <!-- Article Content/Excerpt -->
+    <div class="article-content">
+      <% if (showExcerpt) { %>
+        <% if (post.excerpt) { %>
+          <%- post.excerpt %>
+        <% } else { %>
+          <%- truncate(strip_html(post.content), {length: theme.index.excerpt_length || 200}) %>
+        <% } %>
+
+        <div class="article-more">
+          <a href="<%- url_for(post.path) %>" class="read-more">
+            <%= theme.index.excerpt_link || __('read_more') %>
+            <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+      <% } else { %>
+        <%- post.content %>
+      <% } %>
+    </div>
+
+  <% } else { %>
+    <!-- Full Post View -->
+    <header class="article-header">
+      <h1 class="article-title"><%= post.title %></h1>
+
+      <div class="article-meta">
+        <% if (theme.post_meta.date) { %>
+          <time datetime="<%= post.date.toISOString() %>" class="article-date">
+            <i class="far fa-calendar"></i>
+            <%- date(post.date, 'YYYY-MM-DD') %>
+          </time>
+        <% } %>
+
+        <% if (theme.post_meta.updated && post.updated && post.updated.valueOf() !== post.date.valueOf()) { %>
+          <time datetime="<%= post.updated.toISOString() %>" class="article-updated">
+            <i class="far fa-calendar-check"></i>
+            <%= __('updated') %>: <%- date(post.updated, 'YYYY-MM-DD') %>
+          </time>
+        <% } %>
+
+        <% if (theme.post_meta.categories && post.categories && post.categories.length) { %>
+          <span class="article-category">
+            <i class="far fa-folder"></i>
+            <%- list_categories(post.categories, {
+              show_count: false,
+              style: 'none',
+              separator: ' / '
+            }) %>
+          </span>
+        <% } %>
+
+        <% if (theme.post_meta.word_count) { %>
+          <span class="article-word-count">
+            <i class="fas fa-pencil-alt"></i>
+            <%- __('word_count', word_count(post.content)) %>
+          </span>
+        <% } %>
+
+        <% if (theme.post_meta.reading_time) { %>
+          <span class="article-reading-time">
+            <i class="far fa-clock"></i>
+            <%- reading_time(post.content) %>
+          </span>
+        <% } %>
+      </div>
+    </header>
+
+    <!-- Post Content -->
+    <div class="article-content">
+      <%- post.content %>
+    </div>
+
+    <!-- Post Tags -->
+    <% if (theme.post_meta.tags && post.tags && post.tags.length) { %>
+      <footer class="article-footer">
+        <div class="article-tags">
+          <i class="fas fa-tags"></i>
+          <%- list_tags(post.tags, {
+            show_count: false,
+            style: 'list',
+            class: 'tag-list',
+            separator: ''
+          }) %>
+        </div>
+      </footer>
+    <% } %>
+
+    <!-- Post Navigation -->
+    <% if (theme.post_nav.enable) { %>
+      <%- partial('post/nav') %>
+    <% } %>
+
+    <!-- Share Buttons -->
+    <% if (theme.share.enable && theme.share.platforms && theme.share.platforms.length) { %>
+      <%- partial('post/share') %>
+    <% } %>
+
+    <!-- Comments -->
+    <% if (theme.comments.enable && post.comments !== false) { %>
+      <%- partial('comments') %>
+    <% } %>
+  <% } %>
+</article>

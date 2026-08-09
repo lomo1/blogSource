@@ -68,7 +68,7 @@ pagination_dir: page
 ## Themes: https://hexo.io/themes/
 #Default Theme
 ##theme: landscape
-theme: jacman
+theme: verse
 stylus:
   compress: true
 

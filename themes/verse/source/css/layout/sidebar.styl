@@ -1,0 +1,156 @@
+// ===========================
+// Sidebar Styles
+// ===========================
+
+#sidebar
+  position: sticky
+  top: calc(80px + var(--space-6))
+  height: fit-content
+
+.widget
+  background: var(--bg-secondary)
+  border-radius: var(--radius-xl)
+  padding: var(--space-6)
+  margin-bottom: var(--space-6)
+  box-shadow: var(--shadow-md)
+  border: 1px solid var(--border-primary)
+
+.widget-title
+  font-size: var(--font-size-lg)
+  font-weight: 600
+  color: var(--text-primary)
+  margin-bottom: var(--space-4)
+  display: flex
+  align-items: center
+  gap: var(--space-2)
+
+  &::before
+    content: ''
+    width: 4px
+    height: 1.2em
+    background: var(--color-primary-500)
+    border-radius: 2px
+
+.widget-content
+  ul
+    list-style: none
+
+  li
+    margin-bottom: var(--space-3)
+
+    &:last-child
+      margin-bottom: 0
+
+  a
+    color: var(--text-secondary)
+    font-size: var(--font-size-sm)
+    display: flex
+    justify-content: space-between
+    align-items: center
+    padding: var(--space-2)
+    border-radius: var(--radius-sm)
+    transition: all var(--transition-base)
+
+    &:hover
+      color: var(--color-primary-500)
+      background: var(--bg-tertiary)
+      padding-left: var(--space-3)
+
+  .count
+    color: var(--text-tertiary)
+    font-size: var(--font-size-xs)
+
+  // 限制内容高度，超出滚动
+  max-height: 400px
+  overflow-y: auto
+  overflow-x: hidden
+
+  // 美化滚动条
+  &::-webkit-scrollbar
+    width: 6px
+
+  &::-webkit-scrollbar-track
+    background: var(--bg-tertiary)
+    border-radius: 3px
+
+  &::-webkit-scrollbar-thumb
+    background: var(--border-primary)
+    border-radius: 3px
+
+    &:hover
+      background: var(--color-primary-500)
+
+// TOC widget
+.toc-widget
+  .toc
+    ol
+      list-style: none
+      padding-left: var(--space-4)
+
+    li
+      margin-bottom: var(--space-2)
+
+    a
+      display: block
+      padding: var(--space-2)
+      color: var(--text-secondary)
+      font-size: var(--font-size-sm)
+      border-left: 2px solid transparent
+      transition: all var(--transition-base)
+
+      &:hover
+        color: var(--color-primary-500)
+        border-left-color: var(--color-primary-500)
+
+      &.active
+        color: var(--color-primary-500)
+        border-left-color: var(--color-primary-500)
+        font-weight: 600
+
+// Tag cloud widget
+.tagcloud-widget
+  .widget-content
+    display: flex
+    flex-wrap: wrap
+    gap: var(--space-2)
+
+  a
+    display: inline-block
+    padding: var(--space-2) var(--space-3)
+    background: var(--bg-tertiary)
+    color: var(--text-secondary)
+    font-size: var(--font-size-xs)
+    border-radius: var(--radius-md)
+    border: 1px solid var(--border-primary)
+    transition: all var(--transition-base)
+
+    &:hover
+      background: var(--color-primary-500)
+      color: white
+      border-color: var(--color-primary-500)
+      transform: translateY(-1px)
+
+// Recent posts widget
+.recent-posts-list
+  .recent-post-item
+    display: flex
+    flex-direction: column
+    gap: var(--space-1)
+
+    a
+      font-size: var(--font-size-sm)
+      color: var(--text-secondary)
+      transition: color var(--transition-base)
+
+      &:hover
+        color: var(--color-primary-500)
+
+    time
+      font-size: var(--font-size-xs)
+      color: var(--text-tertiary)
+
+// Responsive
+@media (max-width: 968px)
+  #sidebar
+    position: static
+    margin-top: var(--space-12)

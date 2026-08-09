@@ -1,0 +1,65 @@
+# 导航
+menu: 菜单
+home: 首页
+archives: 归档
+categories: 分类
+tags: 标签
+about: 关于
+search: 搜索
+
+# 文章元信息
+prev: 上一篇
+next: 下一篇
+comment: 评论
+comments: 评论
+toc: 文章目录
+contents: 目录
+recent_posts: 最新文章
+updated: 更新于
+published: 发表于
+reading_time: "阅读时长 %s 分钟"
+word_count: "字数统计 %s"
+
+# 归档
+archive_a: 归档
+archive_b: "归档：%s"
+archive_date: YYYY年M月
+
+# 分页
+page: "第 %d 页"
+prev_page: 上一页
+next_page: 下一页
+prev_post: 上一篇
+next_post: 下一篇
+
+# 小工具
+category: 分类
+tag: 标签
+tagcloud: 标签云
+links: 友情链接
+rss: RSS 订阅
+
+# 侧边栏
+show_sidebar: 显示侧边栏
+hide_sidebar: 隐藏侧边栏
+to_top: 返回顶部
+
+# 页脚
+powered_by: "由 %s 强力驱动"
+theme_by: "主题 - %s"
+
+# 404
+not_found: 页面未找到
+not_found_desc: 抱歉，您访问的页面不存在。
+
+# 时间
+just_now: 刚刚
+minutes_ago: "%s 分钟前"
+hours_ago: "%s 小时前"
+days_ago: "%s 天前"
+weeks_ago: "%s 周前"
+months_ago: "%s 个月前"
+
+# 按钮
+read_more: 阅读全文
+share: 分享

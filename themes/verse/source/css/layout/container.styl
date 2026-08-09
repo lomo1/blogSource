@@ -1,0 +1,28 @@
+// ===========================
+// Container & Layout
+// ===========================
+
+#container
+  max-width: 1200px
+  margin: var(--space-12) auto
+  padding: 0 var(--space-6)
+  display: grid
+  grid-template-columns: 1fr 320px
+  gap: var(--space-8)
+
+#main
+  min-width: 0 // Fix for grid overflow
+
+  &.no-sidebar
+    grid-column: 1 / -1
+    max-width: 900px
+    margin: 0 auto
+
+// Responsive
+@media (max-width: 968px)
+  #container
+    grid-template-columns: 1fr
+
+  #main
+    &.no-sidebar
+      max-width: 100%

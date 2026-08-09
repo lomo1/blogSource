@@ -1,0 +1,13 @@
+<% if (site.posts.length) { %>
+  <div class="widget archive-widget">
+    <h3 class="widget-title"><%= __('archives') %></h3>
+    <div class="widget-content">
+      <%- list_archives({
+        type: 'monthly',
+        order: -1,
+        show_count: true,
+        format: 'YYYY-MM'
+      }) %>
+    </div>
+  </div>
+<% } %>

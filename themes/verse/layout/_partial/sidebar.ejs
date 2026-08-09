@@ -1,0 +1,18 @@
+<aside id="sidebar">
+  <% if (theme.toc.enable && is_post() && page.toc !== false) { %>
+    <div class="widget toc-widget">
+      <h3 class="widget-title"><%= __('toc') %></h3>
+      <div class="widget-content">
+        <%- toc(page.content, {
+          list_number: theme.toc.number,
+          class: 'toc',
+          max_depth: theme.toc.max_depth || 3
+        }) %>
+      </div>
+    </div>
+  <% } %>
+
+  <% (theme.widgets || []).forEach(function(widget) { %>
+    <%- partial('_widget/' + widget) %>
+  <% }); %>
+</aside>

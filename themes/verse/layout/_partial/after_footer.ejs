@@ -1,0 +1,45 @@
+<!-- jQuery (if needed for plugins) -->
+<% if (theme.cdn.enable && theme.cdn.jquery) { %>
+  <script src="<%= theme.cdn.jquery %>"></script>
+<% } %>
+
+<!-- Main JavaScript -->
+<%- js('js/main') %>
+
+<!-- Search -->
+<% if (theme.search.enable && theme.search.provider === 'local') { %>
+  <%- js('js/search') %>
+<% } %>
+
+<!-- Busuanzi Counter -->
+<% if (theme.busuanzi.enable) { %>
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<% } %>
+
+<!-- Math Support -->
+<% if (theme.math.enable && page.mathjax !== false) { %>
+  <% if (theme.math.engine === 'katex') { %>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "$", right: "$", display: false},
+            {left: "\\[", right: "\\]", display: true},
+            {left: "\\(", right: "\\)", display: false}
+          ]
+        });
+      });
+    </script>
+  <% } %>
+<% } %>
+
+<!-- Custom Footer Scripts -->
+<%- partial('_partial/custom/footer') %>
+
+<!-- Cloudflare Web Analytics -->
+<% if (theme.cloudflare_analytics) { %>
+  <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "<%= theme.cloudflare_analytics %>"}'></script>
+<% } %>

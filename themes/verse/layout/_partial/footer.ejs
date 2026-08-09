@@ -1,0 +1,62 @@
+<footer id="footer">
+  <div class="footer-content">
+    <div class="footer-info">
+      <p class="copyright">
+        &copy; <% if (theme.since && theme.since < new Date().getFullYear()) { %><%= theme.since %> - <% } %><%= new Date().getFullYear() %>
+        <%= config.author || theme.author.name %>
+      </p>
+      <p class="powered">
+        <%- __('powered_by', '<a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>') %>
+        <span class="separator">|</span>
+        <%- __('theme_by', '<a href="https://github.com/yourusername/hexo-theme-verse" target="_blank" rel="noopener">Verse</a>') %>
+      </p>
+    </div>
+
+    <% if (theme.social && Object.keys(theme.social).length > 0) { %>
+      <div class="footer-social">
+        <% for (var platform in theme.social) {
+          if (theme.social[platform]) {
+            var iconMap = {
+              github: 'fab fa-github',
+              twitter: 'fab fa-twitter',
+              facebook: 'fab fa-facebook',
+              linkedin: 'fab fa-linkedin',
+              email: 'fas fa-envelope',
+              rss: 'fas fa-rss',
+              weibo: 'fab fa-weibo',
+              zhihu: 'fab fa-zhihu'
+            };
+            var icon = iconMap[platform] || 'fas fa-link';
+            var url = theme.social[platform];
+            if (platform === 'email' && !url.startsWith('mailto:')) {
+              url = 'mailto:' + url;
+            }
+        %>
+          <a href="<%= url %>" target="_blank" rel="noopener" aria-label="<%= platform %>">
+            <i class="<%= icon %>"></i>
+          </a>
+        <% }} %>
+      </div>
+    <% } %>
+
+    <% if (theme.creative_commons.enable) { %>
+      <div class="footer-license">
+        <a href="https://creativecommons.org/licenses/<%= theme.creative_commons.license %>/4.0/" target="_blank" rel="noopener license">
+          <i class="fab fa-creative-commons"></i> CC <%= theme.creative_commons.license.toUpperCase() %> 4.0
+        </a>
+      </div>
+    <% } %>
+
+    <% if (theme.busuanzi.enable) { %>
+      <div class="footer-busuanzi">
+        <span id="busuanzi_container_site_pv">
+          <i class="fas fa-eye"></i> <span id="busuanzi_value_site_pv"></span>
+        </span>
+        <span class="separator">|</span>
+        <span id="busuanzi_container_site_uv">
+          <i class="fas fa-user"></i> <span id="busuanzi_value_site_uv"></span>
+        </span>
+      </div>
+    <% } %>
+  </div>
+</footer>

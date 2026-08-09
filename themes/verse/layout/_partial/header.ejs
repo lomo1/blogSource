@@ -1,0 +1,86 @@
+<header id="header">
+  <div class="header-content">
+    <div class="header-left">
+      <a href="<%- url_for('/') %>" class="logo">
+        <% if (theme.banner.enable && theme.banner.image) { %>
+          <img src="<%- url_for(theme.banner.image) %>" alt="<%= config.title %>">
+        <% } else { %>
+          <%= config.title %>
+        <% } %>
+      </a>
+    </div>
+
+    <div class="header-right">
+      <nav class="main-nav">
+        <ul>
+          <% for (var key in theme.menu) {
+            var path = theme.menu[key];
+            var isActive = false;
+
+            // Determine if menu item is active
+            if (path === '/' && is_home()) {
+              isActive = true;
+            } else if (path !== '/' && page.path && page.path.indexOf(path.replace('/', '')) === 0) {
+              isActive = true;
+            }
+          %>
+            <li>
+              <a href="<%- url_for(path) %>" class="<%= isActive ? 'active' : '' %>">
+                <%= key %>
+              </a>
+            </li>
+          <% } %>
+
+          <% if (theme.search.enable) { %>
+            <li>
+              <button class="search-toggle" id="search-toggle" aria-label="<%= __('search') %>">
+                <i class="fas fa-search"></i>
+              </button>
+            </li>
+          <% } %>
+
+          <% if (theme.dark_mode.enable) { %>
+            <li>
+              <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+                <i class="fas fa-moon" id="theme-icon"></i>
+              </button>
+            </li>
+          <% } %>
+        </ul>
+      </nav>
+
+      <!-- Mobile Menu Toggle -->
+      <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Navigation -->
+  <nav class="mobile-nav" id="mobile-nav">
+    <ul>
+      <% for (var key in theme.menu) {
+        var path = theme.menu[key];
+        var isActive = false;
+
+        if (path === '/' && is_home()) {
+          isActive = true;
+        } else if (path !== '/' && page.path && page.path.indexOf(path.replace('/', '')) === 0) {
+          isActive = true;
+        }
+      %>
+        <li>
+          <a href="<%- url_for(path) %>" class="<%= isActive ? 'active' : '' %>">
+            <%= key %>
+          </a>
+        </li>
+      <% } %>
+    </ul>
+  </nav>
+</header>
+
+<% if (theme.reading_progress.enable && is_post()) { %>
+  <div class="reading-progress-bar" id="reading-progress"></div>
+<% } %>
